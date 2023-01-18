@@ -44,7 +44,7 @@
                     total = parseFloat(maths + lecture + english + 0.75);
                     break;
                 case"KV2":
-                    total = parse(maths + lecture + english + 0.25);
+                    total = parseFloat(maths + lecture + english + 0.25);
                     break;
                 case"KV2-NT":
                     total = parseFloat(maths + lecture + english + 0.5);
@@ -55,7 +55,8 @@
                 default:
                     alert("Bạn chưa chọn khu vực");                
             }
-            document.getElementById('display').innerHTML = `Tổng điểm ĐH khối D của bạn là: ${Math.ceil(total)}`;
+            document.getElementById('display').innerHTML = `Tổng điểm ĐH khối D của bạn là: ${total}`
+        
         }
         
     </script>
