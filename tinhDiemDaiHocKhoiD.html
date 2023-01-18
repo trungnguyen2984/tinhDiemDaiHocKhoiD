@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input, label, select, button{
+            margin:5px; 
+            padding:2px;
+
+        }
+        #display{
+            font-size:2em;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Tính điểm ĐH Khối D</h2>
+    <label for="Toan">Môn Toán</label><input type="number" min="1" max="10" id="maths"><br>
+    <label for="Van">Môn Văn</label><input type="number" min="1" max="10" id="lecture"><br>
+    <label for="Anh">Môn Anh</label><input type="number" min="1" max="10" id="english"><br>
+    <label for="KhuVuc">Khu Vực</label><select name="KhuVuc" id="KhuVuc">
+        <option value="KV1" selected="selected">KV1</option>
+        <option value="KV2">KV2</option>
+        <option value="KV2-NT">KV2-NT</option>
+        <option value="KV3">KV3</option>
+    </select><br>
+    <button onclick="tinhDiem()">Tính Điểm</button>
+    <div id="display"></div>
+    <script>
+        function tinhDiem(){
+            let maths = document.getElementById('maths').value;
+            let lecture = document.getElementById('lecture').value;
+            let english = document.getElementById('english').value;
+            let total =0 ;
+            let select = document.getElementById('KhuVuc').value;
+            console.log(select);
+           
+            switch(select){
+                case"KV1": 
+                    total = parseFloat(maths + lecture + english + 0.75);
+                    break;
+                case"KV2":
+                    total = parse(maths + lecture + english + 0.25);
+                    break;
+                case"KV2-NT":
+                    total = parseFloat(maths + lecture + english + 0.5);
+                    break;
+                case"KV3":
+                    total = parseFloat(maths + lecture + english + 0.5);
+                    break;
+                default:
+                    alert("Bạn chưa chọn khu vực");                
+            }
+            document.getElementById('display').innerHTML = `Tổng điểm ĐH khối D của bạn là: ${Math.ceil(total)}`;
+        }
+        
+    </script>
+</body>
+</html>
